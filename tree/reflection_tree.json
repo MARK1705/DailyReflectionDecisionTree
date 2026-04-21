@@ -1,0 +1,362 @@
+[
+  {
+    "id": "START",
+    "parentId": "null",
+    "type": "start",
+    "text": "Daily Reflection: Let's evaluate your development path.",
+    "options": "",
+    "target": "",
+    "signal": ""
+  },
+  {
+    "id": "A1_OPEN",
+    "parentId": "START",
+    "type": "question",
+    "text": "What best describes your current development stage?",
+    "options": "Complete projects but no impact|Start but don\u2019t finish|Mostly tutorials|Consistent but unfocused",
+    "target": "",
+    "signal": "axis1:stage"
+  },
+  {
+    "id": "A1_Q2",
+    "parentId": "A1_OPEN",
+    "type": "question",
+    "text": "Based on \"{A1_OPEN.answer}\", how do you usually learn?",
+    "options": "Structured courses|Random exploration|Project-based learning|Copy existing solutions",
+    "target": "",
+    "signal": "axis1:learning"
+  },
+  {
+    "id": "A1_Q3",
+    "parentId": "A1_Q2",
+    "type": "question",
+    "text": "What is your most limiting weakness right now?",
+    "options": "Lack of consistency|Shallow understanding|Poor execution|Avoiding difficult topics",
+    "target": "",
+    "signal": "axis1:core_issue"
+  },
+  {
+    "id": "A1_D1",
+    "parentId": "A1_Q3",
+    "type": "decision",
+    "text": "",
+    "options": "answer=Lack of consistency:A1_R_DISCIPLINE;answer=Poor execution:A1_R_DISCIPLINE;answer=Shallow understanding:A1_R_CLARITY;answer=Avoiding difficult topics:A1_R_CLARITY",
+    "target": "axis1:diagnosis",
+    "signal": ""
+  },
+  {
+    "id": "A1_R_DISCIPLINE",
+    "parentId": "A1_D1",
+    "type": "reflection",
+    "text": "You don\u2019t lack knowledge\u2014you lack consistent execution.",
+    "options": "",
+    "target": "",
+    "signal": "axis1:issue=consistency"
+  },
+  {
+    "id": "A1_R_CLARITY",
+    "parentId": "A1_D1",
+    "type": "reflection",
+    "text": "You are working hard, but not on the right problems.",
+    "options": "",
+    "target": "",
+    "signal": "axis1:issue=direction"
+  },
+  {
+    "id": "A1_Q4",
+    "parentId": "A1_R_DISCIPLINE",
+    "type": "question",
+    "text": "How do you handle difficult problems?",
+    "options": "Skip them|Google immediately|Try briefly then quit|Break into parts and persist",
+    "target": "",
+    "signal": "axis1:problem_behavior"
+  },
+  {
+    "id": "A1_Q4B",
+    "parentId": "A1_R_CLARITY",
+    "type": "question",
+    "text": "How do you handle difficult problems?",
+    "options": "Skip them|Google immediately|Try briefly then quit|Break into parts and persist",
+    "target": "",
+    "signal": "axis1:problem_behavior"
+  },
+  {
+    "id": "A1_R2",
+    "parentId": "A1_Q4",
+    "type": "reflection",
+    "text": "Your growth is limited by your tolerance for discomfort and complexity.",
+    "options": "",
+    "target": "",
+    "signal": "axis1:insight"
+  },
+  {
+    "id": "A1_R2B",
+    "parentId": "A1_Q4B",
+    "type": "reflection",
+    "text": "Your growth is limited by your tolerance for discomfort and complexity.",
+    "options": "",
+    "target": "",
+    "signal": "axis1:insight"
+  },
+  {
+    "id": "BRIDGE_1_2",
+    "parentId": "A1_R2",
+    "type": "bridge",
+    "text": "You identified your core issue as \"{A1_OPEN.answer}\". Now shift to execution.",
+    "options": "",
+    "target": "A2_OPEN",
+    "signal": "axis1:complete"
+  },
+  {
+    "id": "BRIDGE_1_2B",
+    "parentId": "A1_R2B",
+    "type": "bridge",
+    "text": "You identified your core issue as \"{A1_OPEN.answer}\". Now shift to execution.",
+    "options": "",
+    "target": "A2_OPEN",
+    "signal": "axis1:complete"
+  },
+  {
+    "id": "A2_OPEN",
+    "parentId": "null",
+    "type": "question",
+    "text": "What execution strategy will you adopt?",
+    "options": "Build one major product|Focus on DSA|Learn system design|Do multiple small projects",
+    "target": "",
+    "signal": "axis2:strategy"
+  },
+  {
+    "id": "A2_D1",
+    "parentId": "A2_OPEN",
+    "type": "decision",
+    "text": "",
+    "options": "answer=Build one major product:A2_R_DEPTH;answer=Learn system design:A2_R_DEPTH;answer=Focus on DSA:A2_R_BREADTH;answer=Do multiple small projects:A2_R_BREADTH",
+    "target": "axis2:focus",
+    "signal": ""
+  },
+  {
+    "id": "A2_R_DEPTH",
+    "parentId": "A2_D1",
+    "type": "reflection",
+    "text": "Focusing deeply on one area leads to real expertise.",
+    "options": "",
+    "target": "",
+    "signal": "axis2:focus=depth"
+  },
+  {
+    "id": "A2_R_BREADTH",
+    "parentId": "A2_D1",
+    "type": "reflection",
+    "text": "Spreading across areas without mastery leads to shallow skills.",
+    "options": "",
+    "target": "",
+    "signal": "axis2:focus=breadth"
+  },
+  {
+    "id": "A2_Q2",
+    "parentId": "A2_R_DEPTH",
+    "type": "question",
+    "text": "What daily execution habit will you commit to?",
+    "options": "Build features daily|Solve coding problems|Read documentation|Analyze real-world systems",
+    "target": "",
+    "signal": "axis2:habit"
+  },
+  {
+    "id": "A2_Q2B",
+    "parentId": "A2_R_BREADTH",
+    "type": "question",
+    "text": "What daily execution habit will you commit to?",
+    "options": "Build features daily|Solve coding problems|Read documentation|Analyze real-world systems",
+    "target": "",
+    "signal": "axis2:habit"
+  },
+  {
+    "id": "A2_D2",
+    "parentId": "A2_Q2",
+    "type": "decision",
+    "text": "",
+    "options": "answer=Build features daily:A2_R_TRACK_YES;answer=Solve coding problems:A2_R_TRACK_YES;answer=Read documentation:A2_R_TRACK_NO;answer=Analyze real-world systems:A2_R_TRACK_NO",
+    "target": "axis2:tracking",
+    "signal": ""
+  },
+  {
+    "id": "A2_D2B",
+    "parentId": "A2_Q2B",
+    "type": "decision",
+    "text": "",
+    "options": "answer=Build features daily:A2_R_TRACK_YES;answer=Solve coding problems:A2_R_TRACK_YES;answer=Read documentation:A2_R_TRACK_NO;answer=Analyze real-world systems:A2_R_TRACK_NO",
+    "target": "axis2:tracking",
+    "signal": ""
+  },
+  {
+    "id": "A2_R_TRACK_YES",
+    "parentId": "A2_D2",
+    "type": "reflection",
+    "text": "Tracking progress creates accountability and faster improvement.",
+    "options": "",
+    "target": "",
+    "signal": "axis2:tracking=enabled"
+  },
+  {
+    "id": "A2_R_TRACK_NO",
+    "parentId": "A2_D2",
+    "type": "reflection",
+    "text": "Without tracking, progress becomes inconsistent and invisible.",
+    "options": "",
+    "target": "",
+    "signal": "axis2:tracking=disabled"
+  },
+  {
+    "id": "A2_R_TRACK_YESB",
+    "parentId": "A2_D2B",
+    "type": "reflection",
+    "text": "Tracking progress creates accountability and faster improvement.",
+    "options": "",
+    "target": "",
+    "signal": "axis2:tracking=enabled"
+  },
+  {
+    "id": "A2_R_TRACK_NOB",
+    "parentId": "A2_D2B",
+    "type": "reflection",
+    "text": "Without tracking, progress becomes inconsistent and invisible.",
+    "options": "",
+    "target": "",
+    "signal": "axis2:tracking=disabled"
+  },
+  {
+    "id": "A2_Q3",
+    "parentId": "A2_R_TRACK_YES",
+    "type": "question",
+    "text": "How will you validate your work?",
+    "options": "Run locally|Share with peers|Deploy publicly|Get real users",
+    "target": "",
+    "signal": "axis2:validation"
+  },
+  {
+    "id": "A2_Q3B",
+    "parentId": "A2_R_TRACK_NO",
+    "type": "question",
+    "text": "How will you validate your work?",
+    "options": "Run locally|Share with peers|Deploy publicly|Get real users",
+    "target": "",
+    "signal": "axis2:validation"
+  },
+  {
+    "id": "A2_Q3C",
+    "parentId": "A2_R_TRACK_YESB",
+    "type": "question",
+    "text": "How will you validate your work?",
+    "options": "Run locally|Share with peers|Deploy publicly|Get real users",
+    "target": "",
+    "signal": "axis2:validation"
+  },
+  {
+    "id": "A2_Q3D",
+    "parentId": "A2_R_TRACK_NOB",
+    "type": "question",
+    "text": "How will you validate your work?",
+    "options": "Run locally|Share with peers|Deploy publicly|Get real users",
+    "target": "",
+    "signal": "axis2:validation"
+  },
+  {
+    "id": "BRIDGE_2_3",
+    "parentId": "A2_Q3",
+    "type": "bridge",
+    "text": "Your actions define your trajectory. Now define your outcome.",
+    "options": "",
+    "target": "A3_OPEN",
+    "signal": "axis2:complete"
+  },
+  {
+    "id": "BRIDGE_2_3B",
+    "parentId": "A2_Q3B",
+    "type": "bridge",
+    "text": "Your actions define your trajectory. Now define your outcome.",
+    "options": "",
+    "target": "A3_OPEN",
+    "signal": "axis2:complete"
+  },
+  {
+    "id": "BRIDGE_2_3C",
+    "parentId": "A2_Q3C",
+    "type": "bridge",
+    "text": "Your actions define your trajectory. Now define your outcome.",
+    "options": "",
+    "target": "A3_OPEN",
+    "signal": "axis2:complete"
+  },
+  {
+    "id": "BRIDGE_2_3D",
+    "parentId": "A2_Q3D",
+    "type": "bridge",
+    "text": "Your actions define your trajectory. Now define your outcome.",
+    "options": "",
+    "target": "A3_OPEN",
+    "signal": "axis2:complete"
+  },
+  {
+    "id": "A3_OPEN",
+    "parentId": "null",
+    "type": "question",
+    "text": "What outcome do you want in 6 months?",
+    "options": "Strong portfolio|Job-ready backend skills|Deep technical expertise|Startup-ready product",
+    "target": "",
+    "signal": "axis3:goal"
+  },
+  {
+    "id": "A3_D1",
+    "parentId": "A3_OPEN",
+    "type": "decision",
+    "text": "",
+    "options": "answer=Strong portfolio:A3_R_WEAK;answer=Job-ready backend skills:A3_R_STRONG;answer=Deep technical expertise:A3_R_STRONG;answer=Startup-ready product:A3_R_STRONG",
+    "target": "axis3:consistency_check",
+    "signal": ""
+  },
+  {
+    "id": "A3_R_STRONG",
+    "parentId": "A3_D1",
+    "type": "reflection",
+    "text": "Consistent execution compounds into measurable success.",
+    "options": "",
+    "target": "",
+    "signal": "axis3:consistent"
+  },
+  {
+    "id": "A3_R_WEAK",
+    "parentId": "A3_D1",
+    "type": "reflection",
+    "text": "Without discipline, even clear goals will fail.",
+    "options": "",
+    "target": "",
+    "signal": "axis3:inconsistent"
+  },
+  {
+    "id": "A3_R_FINAL",
+    "parentId": "A3_R_STRONG",
+    "type": "reflection",
+    "text": "Your future is determined by what you repeatedly execute, not what you know.",
+    "options": "",
+    "target": "",
+    "signal": "axis3:final"
+  },
+  {
+    "id": "SUMMARY",
+    "parentId": "A3_R_FINAL",
+    "type": "summary",
+    "text": "You started as \"{A1_OPEN.answer}\". You chose ({axis2:strategy}) and committed to ({axis2:habit}). Your validation approach ({axis2:validation}) determines whether you reach ({axis3:goal}) or remain stuck.",
+    "options": "",
+    "target": "",
+    "signal": "summary:dynamic"
+  },
+  {
+    "id": "END",
+    "parentId": "SUMMARY",
+    "type": "end",
+    "text": "Reflection complete. Act on it.",
+    "options": "",
+    "target": "",
+    "signal": ""
+  }
+]
